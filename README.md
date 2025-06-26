@@ -5,7 +5,7 @@
 北上广深杭大量招人，各种研发岗位都在找，有意向者可以直接点击后面链接投递简历或者联系我 gsdios@126.com https://job.toutiao.com/s/eL91QMm，
 
 ### 支持pod导入
-pod 'SDCycleScrollView','>= 1.82'
+pod 'SDCycleScrollView', :git=> "https://github.com/QiuYeHong90/SDCycleScrollView", :tag => "1.8.3"
 
 
 ### 更改记录：
