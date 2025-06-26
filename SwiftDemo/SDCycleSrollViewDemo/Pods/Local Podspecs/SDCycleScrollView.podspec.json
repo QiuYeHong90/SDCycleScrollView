@@ -1,0 +1,44 @@
+{
+  "name": "SDCycleScrollView",
+  "version": "1.82",
+  "summary": "简单易用的图片无限轮播器. 1.82版本更新内容：修复iOS14上系统自带pagecontrol显示不出来bug",
+  "homepage": "https://github.com/gsdios/SDCycleScrollView",
+  "license": "MIT",
+  "authors": {
+    "GSD_iOS": "gsdios@126.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/gsdios/SDCycleScrollView.git",
+    "tag": "1.82"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "swift_versions": [
+    "5.0"
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SDCycleScrollView/Lib/SDCycleScrollView/**/*.{h,m}",
+      "dependencies": {
+        "SDWebImage": [
+          ">= 5.0.0"
+        ]
+      }
+    },
+    {
+      "name": "SwiftNOSD",
+      "source_files": [
+        "SDCycleScrollView/Lib/SDCycleScrollView/**/*.{h,m}",
+        "SDCycleScrollView/Lib/SDCycleScrollView/**/*.swift"
+      ],
+      "dependencies": {
+        "Kingfisher": []
+      }
+    }
+  ],
+  "swift_version": "5.0"
+}

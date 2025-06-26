@@ -1,0 +1,23 @@
+PODS:
+  - Kingfisher (8.3.3)
+  - SDCycleScrollView/SwiftNOSD (1.82):
+    - Kingfisher
+
+DEPENDENCIES:
+  - SDCycleScrollView/SwiftNOSD (from `../../`)
+
+SPEC REPOS:
+  trunk:
+    - Kingfisher
+
+EXTERNAL SOURCES:
+  SDCycleScrollView:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  Kingfisher: ff82cb91d9266ddb56cbb2f72d32c26f00d3e5be
+  SDCycleScrollView: 3745c1bab85dd1242e26b8b70dd94e0b2c850a1d
+
+PODFILE CHECKSUM: 096059559a69bd96fee36a289c13477070214ac3
+
+COCOAPODS: 1.16.2

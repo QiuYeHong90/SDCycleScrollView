@@ -207,5 +207,5 @@ typedef enum {
 
 /** 清除图片缓存（兼容旧版本方法） */
 - (void)clearCache;
-
+-(void)loadWithImageView: (UIImageView *)imageView url: (NSURL *)url;
 @end

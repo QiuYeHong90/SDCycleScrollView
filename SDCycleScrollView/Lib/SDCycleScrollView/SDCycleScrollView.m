@@ -33,8 +33,15 @@
 #import "SDCollectionViewCell.h"
 #import "UIView+SDExtension.h"
 #import "TAPageControl.h"
+
+#if __has_include(<SDWebImage/SDWebImage.h>)
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
+#else
+//#import "SDCycleScrollView-Swift.h"
+//#import <SDCycleScrollView-swift.h>
+#endif
+
 
 #define kCycleScrollViewInitialPageControlDotSize CGSizeMake(10, 10)
 
@@ -65,12 +72,22 @@ NSString * const ID = @"SDCycleScrollViewCell";
     return self;
 }
 
-- (void)awakeFromNib
+- (instancetype)initWithCoder:(NSCoder *)coder
 {
-    [super awakeFromNib];
-    [self initialization];
-    [self setupMainView];
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self initialization];
+        [self setupMainView];
+    }
+    return self;
 }
+
+//- (void)awakeFromNib
+//{
+//    [super awakeFromNib];
+//    [self initialization];
+//    [self setupMainView];
+//}
 
 - (void)initialization
 {
@@ -477,7 +494,11 @@ NSString * const ID = @"SDCycleScrollViewCell";
 
 + (void)clearImagesCache
 {
+    
+#if __has_include(<SDWebImage/SDWebImage.h>)
     [[[SDWebImageManager sharedManager] imageCache] clearWithCacheType:SDImageCacheTypeDisk completion:nil];
+#else
+#endif
 }
 
 #pragma mark - life circles
@@ -593,7 +614,13 @@ NSString * const ID = @"SDCycleScrollViewCell";
     
     if (!self.onlyDisplayText && [imagePath isKindOfClass:[NSString class]]) {
         if ([imagePath hasPrefix:@"http"]) {
+            
+#if __has_include(<SDWebImage/SDWebImage.h>)
             [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:self.placeholderImage];
+#else
+            [self loadWithImageView:cell.imageView url:[NSURL URLWithString:imagePath]];
+//            [cell.imageView setYQImage: [NSURL URLWithString:imagePath], placeholderImage: self.placeholderImage];
+#endif
         } else {
             UIImage *image = [UIImage imageNamed:imagePath];
             if (!image) {
@@ -622,6 +649,10 @@ NSString * const ID = @"SDCycleScrollViewCell";
     }
     
     return cell;
+}
+
+-(void)loadWithImageView: (UIImageView *)imageView url: (NSURL *)url {
+    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
