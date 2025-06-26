@@ -7,6 +7,8 @@
 ### 支持pod导入
 pod 'SDCycleScrollView', :git=> "https://github.com/QiuYeHong90/SDCycleScrollView", :tag => "1.8.3"
 
+### 支持pod导 的方案swift Kingfisher 模式依赖，默认依赖 
+pod 'SDCycleScrollView', :subspecs => ["SwiftNOSD"], :git=> "https://github.com/QiuYeHong90/SDCycleScrollView", :tag => "1.8.3"
 
 ### 更改记录：
 
