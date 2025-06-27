@@ -8,7 +8,7 @@
     "GSD_iOS": "gsdios@126.com"
   },
   "platforms": {
-    "ios": "13.0"
+    "ios": "11.0"
   },
   "source": {
     "git": "https://github.com/gsdios/SDCycleScrollView.git",

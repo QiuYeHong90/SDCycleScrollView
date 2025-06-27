@@ -12,7 +12,7 @@ s.author       = { "GSD_iOS" => "gsdios@126.com" }
 
 
 s.platform     = :ios
-s.ios.deployment_target = "13.0"
+s.ios.deployment_target = "11.0"
 
 s.source       = { :git => "https://github.com/gsdios/SDCycleScrollView.git", :tag => s.version}
 
