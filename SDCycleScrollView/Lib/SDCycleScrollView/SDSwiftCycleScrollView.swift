@@ -10,7 +10,7 @@ import UIKit
 public class SDSwiftCycleScrollView: SDCycleScrollView {
 
     public override func load(with imageView: UIImageView!, url: URL!) {
-        imageView.setYQImage(url, placeholderImage: self.placeholderImage)
+        imageView.setYQLoadImage(url, placeholderImage: self.placeholderImage)
     }
     
 }

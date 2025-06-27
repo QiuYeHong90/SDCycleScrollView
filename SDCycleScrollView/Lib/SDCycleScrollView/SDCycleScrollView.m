@@ -38,8 +38,7 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
 #else
-//#import "SDCycleScrollView-Swift.h"
-//#import <SDCycleScrollView-swift.h>
+#import <SDCycleScrollView/SDCycleScrollView-Swift.h>
 #endif
 
 
@@ -614,13 +613,7 @@ NSString * const ID = @"SDCycleScrollViewCell";
     
     if (!self.onlyDisplayText && [imagePath isKindOfClass:[NSString class]]) {
         if ([imagePath hasPrefix:@"http"]) {
-            
-#if __has_include(<SDWebImage/SDWebImage.h>)
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:self.placeholderImage];
-#else
             [self loadWithImageView:cell.imageView url:[NSURL URLWithString:imagePath]];
-//            [cell.imageView setYQImage: [NSURL URLWithString:imagePath], placeholderImage: self.placeholderImage];
-#endif
         } else {
             UIImage *image = [UIImage imageNamed:imagePath];
             if (!image) {
@@ -652,7 +645,11 @@ NSString * const ID = @"SDCycleScrollViewCell";
 }
 
 -(void)loadWithImageView: (UIImageView *)imageView url: (NSURL *)url {
-    
+#if __has_include(<SDWebImage/SDWebImage.h>)
+    [imageView sd_setImageWithURL:url placeholderImage:self.placeholderImage];
+#else
+    [imageView setYQLoadImage:url placeholderImage:self.placeholderImage];
+#endif
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

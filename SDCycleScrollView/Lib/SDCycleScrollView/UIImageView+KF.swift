@@ -8,8 +8,8 @@
 import UIKit
 import Kingfisher
 
-extension UIImageView {
-     @objc func setYQImage(_ url: URL?, placeholderImage: UIImage?) {
+public extension UIImageView {
+     @objc func setYQLoadImage(_ url: URL?, placeholderImage: UIImage?) {
         self.kf.setImage(with: url,placeholder: placeholderImage)
     }
 }
